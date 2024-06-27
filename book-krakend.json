@@ -1,0 +1,64 @@
+{
+    "endpoint_group": [
+      {
+        "endpoint": "/bookinfo/book/{id}",
+        "backend": "/book/{id}",
+        "method": "GET",
+        "extra_config": {
+          "krakend-ce/gwproxy/token": {
+            "two_fa_exempt": true,
+            "two_fa_hard_check": false,
+            "onboarding_validate": false,
+            "one_fa_hard_check": true
+          },
+          "krakend-ce/gwproxy/rate-limit": {
+            "max": 100,
+            "window": "1h"
+          },
+          "krakend-ce/gwproxy/req-modifier":{
+            "skip_error_resp_wrap":true
+          }
+        }
+      },
+      {
+        "endpoint": "/bookinfo/book/{id}",
+        "backend": "/book/{id}",
+        "method": "PUT",
+        "extra_config": {
+          "krakend-ce/gwproxy/token": {
+            "two_fa_exempt": true,
+            "two_fa_hard_check": false,
+            "onboarding_validate": false,
+            "one_fa_hard_check": true
+          },
+          "krakend-ce/gwproxy/rate-limit": {
+            "max": 100,
+            "window": "1h"
+          },
+          "krakend-ce/gwproxy/req-modifier":{
+            "skip_error_resp_wrap":true
+          }
+        }
+      },
+      {
+        "endpoint": "/bookinfo/book/{id}",
+        "backend": "/book/{id}",
+        "method": "DELETE",
+        "extra_config": {
+          "krakend-ce/gwproxy/token": {
+            "two_fa_exempt": true,
+            "two_fa_hard_check": false,
+            "onboarding_validate": false,
+            "one_fa_hard_check": true
+          },
+          "krakend-ce/gwproxy/rate-limit": {
+            "max": 100,
+            "window": "1h"
+          },
+          "krakend-ce/gwproxy/req-modifier":{
+            "skip_error_resp_wrap":true
+          }
+        }
+      }
+    ]
+}
