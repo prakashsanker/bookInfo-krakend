@@ -1,7 +1,7 @@
 {
     "endpoint_group": [
       {
-        "endpoint": "/bookinfo/book/{id}",
+        "endpoint": "/bookinfo/book/bookuser/{id}",
         "backend": "/book/{id}",
         "method": "GET",
         "extra_config": {
