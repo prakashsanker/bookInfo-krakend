@@ -64,7 +64,7 @@ public class BookInfoController {
     }
 
     @GetMapping("/getBookByNameAKS")
-    public List<BookDTO> getBookByName(@RequestParam("bookName") String name) {
+    public List<BookDTO> getBookByNameAKS(@RequestParam("bookName") String name) {
         LOGGER.info("Getting book with name: {}", name);
         return bookService.getBookByName(name);
     }
