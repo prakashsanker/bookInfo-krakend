@@ -1,0 +1,30 @@
+{
+    "endpoint_group": [
+      {
+        "endpoint": "/bookinfo/bookuser/{id}",
+        "backend": "/book/user/{id}",
+        "method": "GET",
+        "extra_config": {
+          "krakend-ce/gwproxy/token": {
+            "two_fa_exempt": true,
+            "two_fa_hard_check": false,
+            "onboarding_validate": false,
+            "one_fa_hard_check": true
+          }
+        }
+      },
+      {
+        "endpoint": "/bookinfo/book/{id}",
+        "backend": "/book/user/{id}/books",
+        "method": "GET",
+        "extra_config": {
+          "krakend-ce/gwproxy/token": {
+            "two_fa_exempt": false,
+            "two_fa_hard_check": true,
+            "onboarding_validate": true,
+            "one_fa_hard_check": false
+          }
+        }
+      }
+    ]
+  }

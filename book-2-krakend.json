@@ -1,0 +1,47 @@
+{
+    "endpoint_group": [
+      {
+        "endpoint": "/bookinfo/book/{id}",
+        "backend": "/book/{id}",
+        "method": "GET",
+        "extra_config": {
+          "krakend-ce/gwproxy/token": {
+            "two_fa_exempt": true,
+            "two_fa_hard_check": false,
+            "onboarding_validate": false,
+            "one_fa_hard_check": true
+          },
+          "krakend-ce/gwproxy/rate-limit": {
+            "max": 200,
+            "window": "1h"
+          }
+        }
+      },
+      {
+        "endpoint": "/bookinfo/book/review/{id}",
+        "backend": "/book/{id}/details",
+        "method": "POST",
+        "extra_config": {
+          "krakend-ce/gwproxy/token": {
+            "two_fa_exempt": false,
+            "two_fa_hard_check": true,
+            "onboarding_validate": true,
+            "one_fa_hard_check": false
+          }
+        }
+      },
+      {
+        "endpoint": "/bookinfo/book/rating/{id}",
+        "backend": "/book/{id}/details",
+        "method": "POST",
+        "extra_config": {
+          "krakend-ce/gwproxy/token": {
+            "two_fa_exempt": false,
+            "two_fa_hard_check": true,
+            "onboarding_validate": true,
+            "one_fa_hard_check": false
+          }
+        }
+      }
+    ]
+  }
