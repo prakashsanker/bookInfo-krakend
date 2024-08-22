@@ -20,7 +20,7 @@
       {
         "endpoint": "/bookinfo/book/review/{id}",
         "backend": "/book/{id}/details",
-        "method": "POST",
+        "method": "PUT",
         "extra_config": {
           "krakend-ce/gwproxy/token": {
             "two_fa_exempt": false,
@@ -33,7 +33,7 @@
       {
         "endpoint": "/bookinfo/book/rating/{id}",
         "backend": "/book/{id}/details",
-        "method": "POST",
+        "method": "PUT",
         "extra_config": {
           "krakend-ce/gwproxy/token": {
             "two_fa_exempt": false,

@@ -37,6 +37,26 @@ public class BookInfoController {
         return  dtoUtils.convertToBookDTO(bookService.createBook(book));
     }
 
+    @PutMapping(value = "/book/{id}/details", consumes = "application/json", produces = "application/json")
+    public BookDTO updateBookDetails(@PathVariable("id") Long id, @RequestBody BookDTO bookDto) {
+        LOGGER.info("Updating book: {}", bookDto);
+        Book book = dtoUtils.convertToBook(bookDto);
+        LOGGER.info("Converted book: {}", book);
+        return dtoUtils.convertToBookDTO(bookService.updateBook(book));
+    }
+
+    @GetMapping("/book/user/{id}")
+    public BookDTO getBookWithUserById(@PathVariable("id") Long id) {
+        LOGGER.info("Getting book with id: {}", id);
+        return dtoUtils.convertToBookDTO(bookService.getBookById(id));
+    }
+
+    @GetMapping("/book/user/{id}/books")
+    public BookDTO getBookWithUserById(@PathVariable("id") Long id) {
+        LOGGER.info("Getting book with id: {}", id);
+        return dtoUtils.convertToBookDTO(bookService.getBookById(id));
+    }
+
     @GetMapping("/book/{id}")
     public BookDTO getBookById(@PathVariable("id") Long id) {
         LOGGER.info("Getting book with id: {}", id);
