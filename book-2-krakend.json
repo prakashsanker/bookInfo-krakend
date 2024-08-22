@@ -37,7 +37,7 @@
             "window": "1h"
           }
         }
-      }
+      },
       {
         "endpoint": "/bookinfo/book/review/{id}",
         "backend": "/book/{id}/details",
