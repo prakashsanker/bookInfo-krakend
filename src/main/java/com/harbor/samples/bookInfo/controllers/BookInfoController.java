@@ -51,6 +51,12 @@ public class BookInfoController {
         return dtoUtils.convertToBookDTO(bookService.getBookById(id));
     }
 
+    @GetMapping("/bookinfo/bookuser/{id}")
+    public BookDTO getBookWithUserByIdwithloop(@PathVariable("id") Long id) {
+        LOGGER.info("Getting book with id: {}", id);
+        return dtoUtils.convertToBookDTO(bookService.getBookById(id));
+    }
+
     @GetMapping("/book/user/{id}/books")
     public BookDTO getBookWithUserForBooksById(@PathVariable("id") Long id) {
         LOGGER.info("Getting book with id: {}", id);
